@@ -11,12 +11,21 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::get('/', function () {
+/*Route::get('/', function () {
+   return view('welcome');
+});*/
+
+Route::get('/', 'FrontController@homePage');
+Route::get('/sign-up', 'FrontController@userSignUp')->name('user-register');
+Route::get('/about-us', 'FrontController@aboutUs')->name('about');
+Route::get('/contact', 'FrontController@contactUs')->name('contact');
+Route::get('/extra-cash-register', 'FrontController@extraCash')->name('extra-cash');
+Route::get('/extra-cash-rider', 'FrontController@extraCashRider')->name('rider');
+Route::get('/user-login', 'FrontController@userLogin')->name('user-login');
+/*Route::get('/', function () {
     return redirect('/login');
-});
+});*/
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
