@@ -153,7 +153,7 @@
                                         <li class="nav-item">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                 <i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
-                                                <span class="admin-name">Advanda Cro</span>
+                                                <span class="admin-name">Supper Admin</span>
                                                 <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
                                             </a>
                                             <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -165,7 +165,7 @@
                                                 </li>
                                                 <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
                                                 </li>
-                                                <li><a href="login.html"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                <li><a href="{{ route('logout') }}"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
                                                 </li>
                                             </ul>
                                         </li>
