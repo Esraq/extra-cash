@@ -19,9 +19,11 @@
 <!--Animation-->
 <script src="{{url('public/assets/frontend/js/wow.min.js')}}"></script>
 <link href="{{url('public/assets/frontend/css/animate.css')}}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css"/>
 <script>
 	new WOW().init();
 </script>
+<script src="{{url('public/assets/frontend/js/validation.js')}}"> </script> 
 <script src="{{url('public/assets/frontend/js/simpleCart.min.js')}}"> </script>	
 <script type="text/javascript" src="{{url('public/assets/frontend/js/move-top.js')}}"></script>
 <script type="text/javascript" src="{{url('public/assets/frontend/js/easing.js')}}"></script>
@@ -86,4 +88,45 @@ if(typeof _bsa !== 'undefined' && _bsa) {
 
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="{{url('public/assets/frontend/images/demobar_w3_4thDec2019.css')}}">
+<style type="text/css">
+        input:not([type="file"]).error,
+            textarea.error,
+            select.error {
+              border: 1px solid red !important;
+            }
+            input:not([type="file"]).no-error,
+            textarea.no-error,
+            select.no-error {
+              border: 1px solid green !important;
+            }
+            div.error-field {
+              color: red;
+              font-size: small;
+            }
+            .register-bottom-grid input[type="password"] {
+              border: 1px solid #EEE;
+              outline-color:#FF5B36;
+              width: 96%;
+              font-size: 1em;
+              padding: 0.5em;
+              -webkit-appearance: none;
+            }
+
+    </style>
+    <script src="https://bstiinventory.org/newbstiinventory/assets/binarytemplate/assets/js/sweetalert2.min.js"></script>
+    <script>
+         const Toast = Swal.mixin({
+              toast: true,
+              position: 'bottom-end',
+              showConfirmButton: false,
+              timer: 5000,
+              background: 'rgba(0,0,0,0) linear-gradient(#C4BBC5,#DCCDCA) repeat scroll 0 0',
+              timerProgressBar: true,
+              onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+    </script>
 <body>

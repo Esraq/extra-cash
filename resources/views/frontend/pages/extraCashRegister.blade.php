@@ -95,68 +95,132 @@ is live on extra cash</span></p>
 		</div>
 		<div class="ordering-form">
 			<div class="container">
+				<form action="{{route('save.restaurant')}}" method="post" validate="true" enctype="multipart/form-data" name="myforms">
+					@csrf
 			<div class="order-form-head text-center wow bounceInLeft" data-wow-delay="0.4s">
 						<h3>Restaurant Register Form</h3>
 						<p>Interested? Fill in the form below to become our partner and 
 increase your revenue!!!!!!!</p>
 					</div>
 				<div class="col-md-8 col-md-offset-3 order-form-grids">
-					
+
+
 					<div class="order-form-grid  wow fadeInLeft" data-wow-delay="0.4s">
 						<!--<h5>Order Information</h5>-->
-								<span>Type of restaurant</span>
-								 <div class="dropdown-button">           			
-            			<select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-						<option value="1">Commercial restaurant</option>
-						<option value="2">Home kitchen</option>
-					  </select>
-					</div>
+					<span>Type of restaurant</span>
+							<br>	
+					<input type="radio" name="restaurant_type" value="1"> Commercial restaurant<br>
+					<input type="radio"  name="restaurant_type"value="2">Home kitchen<br>
+					@if ($errors->has('restaurant_type'))
+                        <span class="error" style="color:red">{{ $errors->first('restaurant_type') }}</span>
+                        <br>
+
+                    @endif
+                    <script type="text/javascript">
+					   	$("#class_id").val({{ old('restaurant_type')}}).change();
+					</script>
 					<span>Restaurant or Home Kitchen Name</span>
-					<input type="text" class="text" value="Restaurant or Home Kitchen Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Restaurant or Home Kitchen Name';}"><br>
+					<input type="text" class="text" value="{{old('kitchen_name')}}"  name="kitchen_name" required>
+					@if ($errors->has('kitchen_name'))
+                        <span class="error" style="color:red">{{ $errors->first('kitchen_name') }}</span>
+                    @endif
+					<br>
 		              <span>Restaurant or Home Kitchen  City </span>
-					<input type="text" class="text" value="Restaurant or Home Kitchen  City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Restaurant or Home Kitchen  City ';}"><br>
+					<input type="text" class="text" name="kitchen_city" required value="{{old('kitchen_city')}}">
+					@if ($errors->has('kitchen_city'))
+                        <span class="error" style="color:red">{{ $errors->first('kitchen_city') }}</span>
+                    @endif
+					<br>
 					   <span>Restaurant or Home Kitchen Address </span>
-					<input type="text" class="text" value="Restaurant or Home Kitchen Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Restaurant or Home Kitchen Address';}"><br>
+					<input type="text" class="text" required name="kitchen_address" value="{{old('kitchen_address')}}">
+					@if ($errors->has('kitchen_address'))
+                        <span class="error" style="color:red">{{ $errors->first('kitchen_address') }}</span>
+                    @endif
+					<br>
 					  <span>Postal Code of Restaurant or Home Kitchen </span>
-					<input type="text" class="text" value="Postal Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Time';}"><br>
-					 <span>Cuisine </span>
-					   <div class="dropdown-button wow">           			
-            			<select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-            			<option value="1">Restaurent A,144 East MG Road Indore</option>	
-						<option value="2">Restaurent B,64 Paarli Hills IndoreIndore</option>
-					  </select> 
-					</div>
+					<input type="text" class="text" value="Postal Code" required name="postal_code" value="{{old('postal_code')}}">
+						@if ($errors->has('postal_code'))
+                        <span class="error" style="color:red">{{ $errors->first('postal_code') }}</span>
+                    @endif
+					<br>
+					
 					 
 					 <span>First Name</span><br>
-					<input type="text" class="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}"><br>
+					<input type="text" class="text" placeholder="First Name"  name="firstName" value="{{old('firstName')}}">
+					@if ($errors->has('firstName'))
+                        <span class="error" style="color:red">{{ $errors->first('firstName') }}</span>
+                    @endif
+					<br>
 					 <span>Last Name</span><br>
-					<input type="text" class="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"><br>
+					<input type="text" class="text" placeholder="Last Name" required name="lastName" value="{{old('lastName')}}">
+					@if ($errors->has('lastName'))
+                        <span class="error" style="color:red">{{ $errors->first('lastName') }}</span>
+                    @endif
+					<br>
 
 					<span>Contact Number</span><br>
-					<input type="text" class="text" value="+880" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"><br>
+					<input type="text" class="text" placeholder="+880" required name="phone_name" value="{{old('phone_name')}}">
+					@if ($errors->has('phone_name'))
+                        <span class="error" style="color:red">{{ $errors->first('phone_name') }}</span>
+                    @endif
+					<br>
 					<span>Email</span><br>
-					<input type="text" class="text" value="Email " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"><br>
+					<input type="text" class="text" placeholder="Email" required="" name="email" value="{{old('email')}}">
+					@if ($errors->has('email'))
+                        <span class="error" style="color:red">{{ $errors->first('email') }}</span>
+                    @endif
+					<br>
 					<span>Number of restaurants or home kitchens</span><br>
-					<input type="text" class="text" value="Number of restaurants or home kitchens" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Number of restaurants or home kitchens';}"><br>
+					<input type="text" class="text" required name="total_restuarent" value="{{old('total_restuarent')}}">
+					@if ($errors->has('total_restuarent'))
+                        <span class="error" style="color:red">{{ $errors->first('total_restuarent') }}</span>
+                    @endif
+					<br>
 					<span>What is the average cost of a meal for one person </span><br>
-					<input type="radio" name="av_amount" value="1">  $<br>
-					<input type="radio"  name="av_amount"value="2">  $$<br>
-					<input type="radio"  name="av_amount" value="3"> $$$<br>
-					<input type="radio" name="av_amount" value="4">  $$$$<br>
+					<input type="radio" name="average_cost" value="1">  $<br>
+					<input type="radio"  name="average_cost"value="2">  $$<br>
+					<input type="radio"  name="average_cost" value="3"> $$$<br>
+					<input type="radio" name="average_cost" value="4">  $$$$<br>
+					@if ($errors->has('average_cost'))
+                        <span class="error" style="color:red">{{ $errors->first('average_cost') }}</span>
+                    @endif
+
+                     <script type="text/javascript">
+					   	$("#class_id").val({{ old('average_cost')}}).change();
+					</script>
 					<span>Upload Menu</span><br>
-					<input type="file" name="file"><br>
+					<input type="file" name="food_menu"><br>
 					<span>Prices provided in the menu uploaded are not marked-up</span><br>
-					<input type="radio" name="file"> I agree<br>
+					@if ($errors->has('food_menu'))
+                        <span class="error" style="color:red">{{ $errors->first('food_menu') }}</span>
+                    @endif
+					<input type="radio" value="1" name="agree" onclick="getAgree();"> I agree<br>
+					<script type="text/javascript">
+						function getAgree() {
+							var selectedOption = $("input:radio[name=agree]:checked").val();
+						if(selectedOption==1){
+								$("#button").prop('disabled', false);
+								document.getElementById("button").style.background = "#009900";
+							}
+						}
+						 $(document).ready(function(){
+						        /*$("button").click(function(){
+						            location.reload(true);
+						        });*/
+						        $("#button").prop('disabled', true);
+						       document.getElementById("button").style.background = "#ff0000";
+						    });
+						
+					</script>
 					<div class="wow swing animated" data-wow-delay= "0.4s">
-					<input type="button" value="order now">
+					<input id="button" type="submit" value="Submit" style="padding:15px 30px;background:green;color:#fff;font-size:15px;border:none">
 					</div>
 					</div>
 				</div>
-				
+				</form>
 			</div>
 		</div>
 		<!---728x90--->
-
 @include('frontend.inc.special')
 	</div>
 @endsection

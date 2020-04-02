@@ -40,6 +40,13 @@
 <!-- jquery
     ============================================ -->
 <script src="{{url('public/backend/js/vendor/jquery-1.11.3.min.js')}}"></script>
+<script src="{{url('public/backend/js/bootstrap-datepicker.js')}}"></script>
+
+<script>
+      $(document).ready(function(){
+           $('.date').datepicker({"format":"dd-mm-yyyy","autoclose":true,"todayHighlight":true});
+      });
+    </script>
 <!-- bootstrap JS
     ============================================ -->
 <script src="{{url('public/backend/js/bootstrap.min.js')}}"></script>

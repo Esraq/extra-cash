@@ -22,6 +22,8 @@ Route::get('/contact', 'FrontController@contactUs')->name('contact');
 Route::get('/extra-cash-register', 'FrontController@extraCash')->name('extra-cash');
 Route::get('/extra-cash-rider', 'FrontController@extraCashRider')->name('rider');
 Route::get('/user-login', 'FrontController@userLogin')->name('user-login');
+Route::post('/save-customer', 'CustomerController@save')->name('save.customer');
+Route::post('/save-restaurant-user', 'FrontController@save')->name('save.restaurant');
 /*Route::get('/', function () {
     return redirect('/login');
 });*/

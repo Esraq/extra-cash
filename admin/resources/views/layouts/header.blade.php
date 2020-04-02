@@ -13,6 +13,7 @@
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('public/backend/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('public/backend/css/datepicker3.css')}}">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('public/backend/css/font-awesome.min.css')}}">
